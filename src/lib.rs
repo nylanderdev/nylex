@@ -95,7 +95,7 @@ macro_rules! byte_lexer {
         }
     };
     ($(($pattern:literal $($token:ident $($lexeme_marker:tt)?)?))+) => {
-        $crate::lexer! { $([$pattern $($token $($lexeme_marker)?)?])* }
+        $crate::byte_lexer! { $([$pattern $($token $($lexeme_marker)?)?])* }
     };
 }
 

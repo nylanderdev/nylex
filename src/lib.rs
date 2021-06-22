@@ -1,5 +1,5 @@
-pub use regex::{Regex, bytes::Regex as Bregex};
 pub use lazy_static::lazy_static;
+pub use regex::{bytes::Regex as Bregex, Regex};
 
 #[macro_export]
 macro_rules! count {
@@ -118,7 +118,7 @@ macro_rules! lexer {
         impl std::fmt::Debug for Token {
             fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
                 f.write_str(&match self {
-                    Self(kind, Some(lexeme)) => format!("Token({:?}, {:?})", kind, lexeme),
+                    Self(kind, Some(lexeme)) => format!("Token({:?}, {})", kind, lexeme),
                     Self(kind, None) => format!("Token({:?})", kind)
                 })
             }

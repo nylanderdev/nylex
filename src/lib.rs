@@ -84,7 +84,9 @@ macro_rules! byte_lexer {
                                     None
                                 }
                             );
-                            tokens.push(token);
+                            if token.0 != Ignored {
+                                tokens.push(token);
+                            }
                             continue 'outer;
                         }
                     }
@@ -149,7 +151,9 @@ macro_rules! lexer {
                                     None
                                 }
                             );
-                            tokens.push(token);
+                            if token.0 != Ignored {
+                                tokens.push(token);
+                            }
                             continue 'outer;
                         }
                     }
